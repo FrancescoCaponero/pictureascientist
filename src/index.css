@@ -23,6 +23,7 @@
 
 body {
   margin: 0;
+  padding: 0;
 }
 
 /**
@@ -76,6 +77,8 @@ pre {
 
 a {
   background-color: transparent;
+  text-decoration: none;
+  color: initial;
 }
 
 /**
@@ -695,4 +698,8 @@ template {
 
 [hidden] {
   display: none;
+}
+
+.spacer{
+  height: 200px;
 }

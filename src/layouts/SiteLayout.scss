@@ -1,0 +1,11 @@
+.main-content-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+
+    .content-container{
+        max-width: 90%;
+        width: 1000px;
+    }
+}

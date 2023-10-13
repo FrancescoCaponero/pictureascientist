@@ -1,18 +1,22 @@
-import React from 'react';
-import './YourLayout.css'; // Importa i tuoi stili CSS
+import './SiteLayout.scss'
 
 interface LayoutProps {
   children: React.ReactNode;
 }
 
-const YourLayout: React.FC<LayoutProps> = ({ children }) => {
+import Footer from '../components/Footer';
+import Header from '../components/Header';
+
+const WebsiteLayout: React.FC<LayoutProps> = ({ children }) => {
   return (
-    <div className="your-layout">
+    <div className="main-content-wrapper">
       <div className="content-container">
-        {children}
+        <Header />
+          {children}
+        <Footer />
       </div>
     </div>
   );
 };
 
-export default YourLayout;
+export default WebsiteLayout;
