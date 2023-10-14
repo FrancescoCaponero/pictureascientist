@@ -1,0 +1,30 @@
+.page-about{
+    .about-heading{
+        display: flex;
+        align-items: center;
+        font-weight: 300;
+        font-size: 8.2rem;
+        line-height: 7.2rem;
+    }
+    .divider{
+        height: 200px;
+    }
+    .authors-section{
+        ul{
+            list-style: none;
+            li{
+
+                h3{
+                    font-size: 4.4rem;
+                    font-weight: 200;
+                    font-style: italic;
+                    margin: 0 !important;
+                }
+                p{
+                    font-size: 1rem;
+                    font-weight: 100;
+                }
+            }
+        }
+    }
+}
