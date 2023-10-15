@@ -1,4 +1,28 @@
+/* Media queries in SCSS */
+
+// Define a mixin for common breakpoints
+@mixin respond-to($breakpoint) {
+    @if $breakpoint == phone {
+      @media (max-width: 480px) {
+        @content;
+      }
+    }
+  
+    @else if $breakpoint == tablet {
+      @media (max-width: 768px) {
+        @content;
+      }
+    }
+  
+    @else if $breakpoint == desktop {
+      @media (min-width: 1024px) {
+        @content;
+      }
+    }
+  }
+
 .header{
+    transition: all .2s ease-in-out;
     position: fixed;
     inset: 0;
     left: 50%;
@@ -9,11 +33,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 999;
     ul{
+        margin: 0;
+        padding: 0;
         width: 100%;
         list-style-type: none;
         display: flex;
-        justify-content: space-between;
+        justify-content: space-around;
         align-items: center;
         li{
             a{
@@ -37,6 +64,25 @@
                     position: absolute;
                     bottom: 0;
                     right: 0;
+                }
+            }
+        }
+    }
+    
+}
+
+.active-header{
+    background-color: rgb(82, 82, 82);
+    width: 100vw;
+    top: 10px;
+    ul{
+        li{
+            a{
+                color:white;
+                &:hover{
+                    &::after{
+                        background-color: white;
+                    }
                 }
             }
         }

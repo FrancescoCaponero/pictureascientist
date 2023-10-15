@@ -1,31 +1,226 @@
+@keyframes arrowAnim {
+    0% {
+      transform: translateY(10px);
+    }
+  
+    50% {
+      transform: translateY(0px);
+    }
+    100%{
+        transform: translateY(10px);
+    }
+  }
+
+  // Define a mixin for common breakpoints
+@mixin respond-to($breakpoint) {
+    @if $breakpoint == phone {
+      @media (max-width: 480px) {
+        @content;
+      }
+    }
+  
+    @else if $breakpoint == tablet {
+      @media (max-width: 768px) {
+        @content;
+      }
+    }
+  
+    @else if $breakpoint == desktop {
+      @media (min-width: 1024px) {
+        @content;
+      }
+    }
+  }
 .page-home{
     .heading-image-section{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        position: relative;
         h1{
+            font-size: 7.2rem;
+            text-align: center;
+            font-weight: 300;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 0;
+            margin: 0;
+            @include respond-to(tablet) {
+                font-size: 4.2rem;
+            }
             span{
-
+                text-align: center;
+                font-weight: 600;
+                font-style: italic;
             }
         }
         h2{
-
+            font-size: 2.2rem;
+            text-align: center;
+            font-weight: normal;
+            max-width: 600px;
+            @include respond-to(tablet) {
+                font-size: 2.9rem;
+                font-weight: 200;
+            }
         }
         .svg-bg{
+            position: absolute;
+            z-index: -1;
+            width: 100%;
+            top: 35%;
+            @include respond-to(tablet) {
+                bottom: -400px;
+            }
             svg{
-
+                opacity: .6;
             }
         }
     }
     .arrow-spacer{
-
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        transition: all .2s ease-in-out;
+        animation: arrowAnim infinite ease-in-out 1s;
+        &:hover{
+            opacity: .4;
+        }
     }
     .event-section{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
         .program-date{
-            
+            font-weight: 300;
+            font-size: 2rem;
+            text-align: center;
         }
         .divider{
-
+            width: 100px;
+            height: 2px;
+            background-color: black;
         }
         .program-text{
-            
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 3rem 0rem;
+            h3{
+                margin: 0;
+                font-size: 2rem;
+                font-weight: 600;
+                margin: 1rem 0rem 4rem 0rem;
+            }
+            h5{
+                margin: 0;
+                font-size: 1.3rem;
+                font-weight: 300;
+                text-align: center;
+            }
+        }
+        .btn-home{
+            transition: all 0.2s ease-in-out;
+            display: block;
+            width: fit-content;
+            margin: 10px auto;
+            background: black;
+            font-size: 1.3rem;
+            border-radius: 7px;
+            color: white;
+            text-decoration: none;
+            padding: 5px 30px;
+            border: 1px solid black;
+            cursor: pointer;
+            &:hover{
+                color: black;
+                background: white;
+
+            }
         }
     }
+    .grid-section{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 12rem 0rem;
+        font-size: 1.6rem;
+        table{
+            max-width: 800px;
+            tr{
+                th{
+                font-weight: black;
+                padding: .5rem 1rem;
+                border-bottom: 2px solid rgb(91, 91, 91);
+                &:first-child{
+                    border-right: 2px solid rgb(126, 126, 126);
+                    @include respond-to(tablet) {
+                        font-size: 1.2rem;
+                    }
+                }
+                }
+            }
+            tbody {
+                tr{
+                    td{
+                        padding: 1rem 1rem;
+                        border-bottom: 2px solid rgb(56, 56, 56);
+                        &:first-child{
+                            border-right: 2px solid rgb(57, 57, 57);
+                            @include respond-to(tablet) {
+                                font-size: 1.2rem;
+                            }
+                        }
+                        &:nth-child(2) {
+                            font-weight: 700;
+                            @include respond-to(tablet) {
+                                font-size: 1.2rem;
+                            }
+                            p{
+                                font-size: 1.2rem;
+                                font-weight: 200;
+                            }
+                            h5{
+                                font-weight: 400;
+                            }
+                        }
+                        &:nth-child(3) {
+                            transition: all .3s ease-in;
+                            font-weight: 700;
+                            cursor: pointer;
+                            padding: 1rem 3rem;
+                            &:hover{
+                                opacity: .5;
+                            }
+                            @include respond-to(tablet) {
+                                padding: 1rem 2rem;
+                            }
+                        }
+                        .inner-table{
+                            font-weight: 300;
+                            h5{
+                                font-weight: 100;
+                                font-size: 1.4rem;
+                                margin-bottom: .4rem;
+                            }
+                            p{
+                                font-size: 1.2rem;
+                            }
+                        }
+                    }
+                    &:last-child{
+                        td{
+                            border-bottom: none;
+                        }
+                    }
+                }
+            }
+        
+        }
+      }
 }

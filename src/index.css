@@ -703,3 +703,23 @@ template {
 .spacer{
   height: 200px;
 }
+
+/* Customize the scrollbar track */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+/* Customize the scrollbar thumb (the draggable part) */
+::-webkit-scrollbar-thumb {
+  background-color: #393939; /* Change the color */
+}
+
+/* Customize the scrollbar track on hover */
+::-webkit-scrollbar-thumb:hover {
+  background-color: #a5a5a5; /* Change the color on hover */
+}
+/* Customize the text selection background color */
+::selection {
+  background-color: #929292; /* Change the background color */
+  color: #fff; /* Change the text color */
+}

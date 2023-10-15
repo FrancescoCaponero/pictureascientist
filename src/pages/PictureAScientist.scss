@@ -1,0 +1,61 @@
+  // Define a mixin for common breakpoints
+  @mixin respond-to($breakpoint) {
+    @if $breakpoint == phone {
+      @media (max-width: 480px) {
+        @content;
+      }
+    }
+  
+    @else if $breakpoint == tablet {
+      @media (max-width: 768px) {
+        @content;
+      }
+    }
+  
+    @else if $breakpoint == desktop {
+      @media (min-width: 1024px) {
+        @content;
+      }
+    }
+  }
+.picture-page{
+    h1{
+        font-weight: 300;
+        font-size: 7.6rem;
+        @include respond-to(tablet) {
+            font-size: 3.2rem;
+        }
+    }
+    h2{
+        font-size: 3rem;
+        font-weight: 400;
+        margin: 8rem 0rem;
+        @include respond-to(tablet) {
+            font-size: 2.4rem;
+        }
+    }
+    p{
+        font-size: 1.3rem;
+        margin-top: 1rem;
+        @include respond-to(tablet) {
+            font-size: 1.4rem;
+        }
+    }
+    h4{
+        font-size: 2.4rem;
+        margin-top: 3rem;
+        font-weight: 400;
+        margin-bottom: 1rem;
+    }
+    span{
+        font-style: italic;
+    }
+    .participant-section{
+        margin: 8rem 0rem;
+        li{
+            list-style: none;
+            margin: 6rem 0rem;
+
+        }
+    }
+}

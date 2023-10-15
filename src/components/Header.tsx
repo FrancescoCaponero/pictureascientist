@@ -1,23 +1,22 @@
 import { NavLink } from "react-router-dom";
-import { useState, useEffect, useRef } from 'react'
+import { useEffect, useState } from "react";
 import './Header.scss'
 
 const Header = () => {
-  const [height, setHeight] = useState(0)
-  const ref = useRef<HTMLDivElement | null>(null);
+  const [small, setSmall] = useState(false);
 
   useEffect(() => {
-    if (ref.current) {
-      setHeight(ref.current.clientHeight);
-    }  },[])
-
-    window.addEventListener('scroll',
-    console.log(window.scrollY);
-    
-  
+    if (typeof window !== "undefined") {
+      window.addEventListener("scroll", () =>
+        setSmall(window.scrollY > 200)
+      );
+    }
+  }, []);
   return (
     <>
-        <nav className="header" ref={ref}>
+        <nav className={`header ${
+          small ? "active-header" : ""
+        }`}>
         <ul>
             <li>
             <NavLink to="/">Home</NavLink>

@@ -1,3 +1,26 @@
+/* Media queries in SCSS */
+
+// Define a mixin for common breakpoints
+@mixin respond-to($breakpoint) {
+    @if $breakpoint == phone {
+      @media (max-width: 480px) {
+        @content;
+      }
+    }
+  
+    @else if $breakpoint == tablet {
+      @media (max-width: 768px) {
+        @content;
+      }
+    }
+  
+    @else if $breakpoint == desktop {
+      @media (min-width: 1024px) {
+        @content;
+      }
+    }
+  }
+
 .page-about{
     .about-heading{
         display: flex;
@@ -5,6 +28,10 @@
         font-weight: 300;
         font-size: 8.2rem;
         line-height: 7.2rem;
+        @include respond-to(tablet)
+        {
+            font-size: 3rem;
+        }
     }
     .divider{
         height: 200px;
@@ -12,6 +39,7 @@
     .authors-section{
         ul{
             list-style: none;
+            padding: 0;
             li{
 
                 h3{
@@ -19,6 +47,10 @@
                     font-weight: 200;
                     font-style: italic;
                     margin: 0 !important;
+                    @include respond-to(tablet)
+                    {
+                        font-size: 2rem;
+                    }
                 }
                 p{
                     font-size: 1rem;
